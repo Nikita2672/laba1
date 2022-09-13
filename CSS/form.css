@@ -5,6 +5,28 @@
     flex-wrap: wrap;
 }
 
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 6vh;
+}
+
+.x-button {
+    width: 30px;
+}
+
+.selected {
+    background: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%
+    );
+    border-style: solid;
+}
+
 p {
     display: flex;
     text-align: center;

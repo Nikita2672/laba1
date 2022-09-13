@@ -14,7 +14,8 @@ function receiveSubmit() {
             async: false,
             data: {"x": x_value.trim(), "y": y_value.trim(), "r": r_value.trim()},
             success: function (data) {
-                $('#table_id tbody').after(data);
+                $('#table_id tr:last').after(data);/*
+                $('#table_id').find('thead').after(data);*/
             },
             error: function (data) {
                 alert(data);
