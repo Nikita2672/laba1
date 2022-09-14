@@ -1,13 +1,12 @@
 function processXSelection(x) {
-    const field = $('#x_value');
-    if (field.val() === x) {
-        field.val("");
+    if (FIELD_X.val() === x) {
+        FIELD_X.val("");
         $('#x' + x).removeClass('selected');
     } else {
-        if (field.val() !== "") {
-            $('#x' + field.val()).removeClass('selected');
+        if (FIELD_X.val() !== "") {
+            $('#x' + FIELD_X.val()).removeClass('selected');
         }
-        field.val(x);
+        FIELD_X.val(x);
         $('#x' + x).addClass('selected');
     }
 }
