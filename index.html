@@ -25,6 +25,7 @@
             border-color: red;
             border-width: 2px;
         }
+
         body {
             background-color: #00B8A9;
             display: flex;
@@ -95,28 +96,29 @@
             <div class="values">
                 <p class="values__x">
                     <label for="x_value">X:</label>
-                <button type="button" class="x-button" id="x-4" onclick="processXSelection('-4')">-4</button>
-                <button type="button" class="x-button" id="x-3" onclick="processXSelection('-3')">-3</button>
-                <button type="button" class="x-button" id="x-2" onclick="processXSelection('-2')">-2</button>
-                <button type="button" class="x-button" id="x-1" onclick="processXSelection('-1')">-1</button>
-                <button type="button" class="x-button" id="x0" onclick="processXSelection('0')">0</button>
-                <button type="button" class="x-button" id="x1" onclick="processXSelection('1')">1</button>
-                <button type="button" class="x-button" id="x2" onclick="processXSelection('2')">2</button>
-                <button type="button" class="x-button" id="x3" onclick="processXSelection('3')">3</button>
-                <button type="button" class="x-button" id="x4" onclick="processXSelection('4')">4</button>
+                    <button type="button" class="x-button" id="x-4" onclick="processXSelection('-4')">-4</button>
+                    <button type="button" class="x-button" id="x-3" onclick="processXSelection('-3')">-3</button>
+                    <button type="button" class="x-button" id="x-2" onclick="processXSelection('-2')">-2</button>
+                    <button type="button" class="x-button" id="x-1" onclick="processXSelection('-1')">-1</button>
+                    <button type="button" class="x-button" id="x0" onclick="processXSelection('0')">0</button>
+                    <button type="button" class="x-button" id="x1" onclick="processXSelection('1')">1</button>
+                    <button type="button" class="x-button" id="x2" onclick="processXSelection('2')">2</button>
+                    <button type="button" class="x-button" id="x3" onclick="processXSelection('3')">3</button>
+                    <button type="button" class="x-button" id="x4" onclick="processXSelection('4')">4</button>
                     <input type="hidden" name="x_coord" id="x_value">
+                    <label for="x_value" class="limitations">default 0</label>
                 </p>
                 <p class="values__y">
                     <label for="y_value">Y:</label><input id="y_value" type="text" class="input js-input js-input-Y"
                                                           name="y_value"
                                                           placeholder="Please enter Y">
-                    <label class="limitations">Y must be (-3 ... 5)</label>
+                    <label for="y_value" class="limitations">Y must be (-3 ... 5)</label>
                 </p>
                 <p class="values__r">
                     <label for="r_value">R:</label><input id="r_value" type="text" class="input js-input js-input-R"
                                                           name="r_value"
                                                           placeholder="Please enter R">
-                    <label class="limitations">R must be (2 ... 5)</label>
+                    <label for="r_value" class="limitations">R must be (2 ... 5)</label>
                 </p>
                 <p class="buttons">
                     <input class="button_animation" id="reset" type="reset" value="reset" onclick="cleanInput()">
@@ -146,6 +148,7 @@
         </table>
     </div>
 
+    <script src="JS/constants.js"></script>
     <script src="JS/validator.js"></script>
     <script src="JS/update.js"></script>
     </body>

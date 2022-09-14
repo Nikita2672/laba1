@@ -1,33 +1,30 @@
-let inputY = document.querySelector('#y_value'),
-    inputR = document.querySelector('#r_value');
-
 function validate_inputed_values(yVal, rVal) {
     let isY;
     let isR;
     console.log(yVal, rVal);
     if (!validateY(yVal)) {
-        inputY.classList.add('error');
+        FIELD_Y.addClass('error');
         isY = false;
     } else {
         isY = true
-        inputY.classList.remove('error');
+        FIELD_Y.removeClass('error');
     }
     if (!validateR(rVal)) {
         isR = false;
-        inputR.classList.add('error');
+        FIELD_R.addClass('error');
     } else {
         isR = true
-        inputR.classList.remove('error');
+        FIELD_R.removeClass('error');
     }
     return isY && isR;
 }
 
 function validateY(yInputElement) {
-    const y = parseFloat(yInputElement);
+    let y = parseFloat(yInputElement);
     return !(Number.isNaN(y) || y <= -3 || y >= 5);
 }
 
 function validateR(rInputElement) {
-    const r = parseFloat(rInputElement);
+    let r = parseFloat(rInputElement);
     return !(Number.isNaN(r) || r <= 2 || r >= 5);
 }
