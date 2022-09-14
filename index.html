@@ -17,7 +17,7 @@
             src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
     <script src="JS/table.js"></script>
-    <script src="JS/processXSelection.js"></script>
+    <script src="JS/processFieldSelection.js"></script>
     <script src="JS/cleaner.js"></script>
 
     <style>
@@ -96,15 +96,15 @@
             <div class="values">
                 <p class="values__x">
                     <label for="x_value">X:</label>
-                    <button type="button" class="x-button" id="x-4" onclick="processXSelection('-4')">-4</button>
-                    <button type="button" class="x-button" id="x-3" onclick="processXSelection('-3')">-3</button>
-                    <button type="button" class="x-button" id="x-2" onclick="processXSelection('-2')">-2</button>
-                    <button type="button" class="x-button" id="x-1" onclick="processXSelection('-1')">-1</button>
-                    <button type="button" class="x-button" id="x0" onclick="processXSelection('0')">0</button>
-                    <button type="button" class="x-button" id="x1" onclick="processXSelection('1')">1</button>
-                    <button type="button" class="x-button" id="x2" onclick="processXSelection('2')">2</button>
-                    <button type="button" class="x-button" id="x3" onclick="processXSelection('3')">3</button>
-                    <button type="button" class="x-button" id="x4" onclick="processXSelection('4')">4</button>
+                    <button type="button" class="x-button" id="x-4" onclick="processFieldSelection(FIELD_X, '-4', 'x')">-4</button>
+                    <button type="button" class="x-button" id="x-3" onclick="processFieldSelection(FIELD_X, '-3', 'x')">-3</button>
+                    <button type="button" class="x-button" id="x-2" onclick="processFieldSelection(FIELD_X, '-2', 'x')">-2</button>
+                    <button type="button" class="x-button" id="x-1" onclick="processFieldSelection(FIELD_X, '-1', 'x')">-1</button>
+                    <button type="button" class="x-button" id="x0" onclick="processFieldSelection(FIELD_X, '0', 'x')">0</button>
+                    <button type="button" class="x-button" id="x1" onclick="processFieldSelection(FIELD_X, '1', 'x')">1</button>
+                    <button type="button" class="x-button" id="x2" onclick="processFieldSelection(FIELD_X, '2', 'x')">2</button>
+                    <button type="button" class="x-button" id="x3" onclick="processFieldSelection(FIELD_X, '3', 'x')">3</button>
+                    <button type="button" class="x-button" id="x4" onclick="processFieldSelection(FIELD_X, '4', 'x')">4</button>
                     <input type="hidden" name="x_coord" id="x_value">
                     <label for="x_value" class="limitations">default 0</label>
                 </p>
