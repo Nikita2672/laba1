@@ -1,22 +1,32 @@
 function receiveSubmit() {
 
-    let x_value = FIELD_X.val();
-    let y_value = FIELD_Y.val();
-    let r_value = FIELD_R.val();
+    let x = FIELD_X.val();
+    let y = FIELD_Y.val();
+    let r = FIELD_R.val();
 
-    if (validate_inputed_values(y_value, r_value)) {
-        $.ajax({
-            type: "GET",
-            url: "index.php",
-            async: false,
-            data: {"x": x_value.trim(), "y": y_value.trim(), "r": r_value.trim()},
-            success: function (data) {
-                $('#table_id tbody').after(data);/*
-                $('#table_id').find('thead').after(data);*/
-            },
-            error: function (data) {
-                alert(data);
-            }
-        });
+    if (validateInputedValues(y, r)) {
+        sendRequest(x, y, r);
     }
 }
+
+function sendRequest(x, y, r) {
+    $.ajax({
+        type: "GET",
+        url: "index.php",
+        async: false,
+        data: {"x": x.trim(), "y": y.trim(), "r": r.trim()},
+        success: function (data) {
+            success(data);
+        },
+        error: function (data) {
+            alert(data);
+        }
+    });
+}
+
+function success(data) {
+    $('#table_id tbody').after(data);
+    //$('#table_id').find('thead').after(data);*/
+}
+
+
