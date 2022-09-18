@@ -25,8 +25,23 @@ function sendRequest(x, y, r) {
 }
 
 function success(data) {
-    $('#table_id tbody').after(data);
-    //$('#table_id').find('thead').after(data);*/
+    table.destroy();
+    initTable(data);
 }
 
-
+function initTable(data) {
+    mass = data.split("*");
+    dataset.push(mass);
+    console.log(dataset)
+    table = TABLE.DataTable({
+        data: dataset,
+        columns: [
+            {title: 'X'},
+            {title: 'Y'},
+            {title: 'R'},
+            {title: 'Time'},
+            {title: 'Process Time'},
+            {title: 'Result'}
+        ]
+    })
+}
