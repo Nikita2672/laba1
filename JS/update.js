@@ -20,7 +20,7 @@ function sendRequest(x, y, r) {
         },
         error: function (data) {
             alert(data);
-        }
+        },
     });
 }
 
@@ -30,18 +30,18 @@ function success(data) {
 }
 
 function initTable(data) {
-    mass = data.split("*");
+    let mass = data.split("*");
     dataset.push(mass);
     console.log(dataset)
     table = TABLE.DataTable({
         data: dataset,
         columns: [
-            {title: 'X'},
-            {title: 'Y'},
-            {title: 'R'},
-            {title: 'Time'},
-            {title: 'Process Time'},
-            {title: 'Result'}
-        ]
+            {title: 'X',},
+            {title: 'Y',},
+            {title: 'R',},
+            {title: 'Time',},
+            {title: 'Process Time',},
+            {title: 'Result',},
+        ],
     })
 }
