@@ -1,4 +1,4 @@
-function validate_inputed_values(yVal, rVal) {
+function validateInputedValues(yVal, rVal) {
     let isY;
     let isR;
     console.log(yVal, rVal);

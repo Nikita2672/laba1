@@ -1,3 +1,16 @@
+let table;
 $(document).ready(function () {
-    TABLE.DataTable();
+    table = TABLE.DataTable({
+        data: dataset,
+        columns: [
+            {title: 'X'},
+            {title: 'Y'},
+            {title: 'R'},
+            {title: 'Time'},
+            {title: 'Time completed'},
+            {title: 'Result'},
+        ]
+    });
 });
+
+

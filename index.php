@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'validator.php';
 
 date_default_timezone_set('Europe/Moscow');
@@ -28,15 +29,7 @@ if (isset($_GET['x']) && isset($_GET['y']) && isset($_GET['r'])) {
         $finishTime = new DateTimeImmutable();
         $interval = $startTime->diff($finishTime);
         $processTime = $interval->format('%S.%F');
-        exit("
-    <tr>
-        <td>$x</td>
-        <td>$y</td>
-        <td>$r</td>
-        <td>$currentTime</td>
-        <td>$processTime</td>
-        <td>$checkedHit</td>
-    </tr>");
+        exit("$x*$y*$r*$currentTime*$processTime*$checkedHit");
     } else {
         exit("Data is incorrect\n");
     }
