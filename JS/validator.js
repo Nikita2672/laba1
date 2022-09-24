@@ -1,25 +1,35 @@
-function validateInputedValues(yVal, rVal) {
-    let isY;
-    let isR;
-    console.log(yVal, rVal);
-    if (!validateY(yVal)) {
-        FIELD_Y.addClass('error');
+function validateInputedValues(xVal, yVal, rVal) {
+    var isY;
+    var isR;
+    var isX;
+    if (!validateNumber(-3, 5, yVal)) {
         isY = false;
-    } else {
-        isY = true
-        FIELD_Y.removeClass('error');
+        $(FIELD_Y).addClass('error');
     }
-    if (!validateR(rVal)) {
+    else {
+        isY = true;
+        $(FIELD_Y).removeClass('error');
+    }
+    if (!validateNumber(2, 5, rVal)) {
         isR = false;
-        FIELD_R.addClass('error');
-    } else {
-        isR = true
-        FIELD_R.removeClass('error');
+        $(FIELD_R).addClass('error');
     }
-    return isY && isR;
+    else {
+        isR = true;
+        $(FIELD_R).removeClass('error');
+    }
+    if (!validateX(-4, 4, xVal)) {
+        isX = false;
+        $('#mistake').removeClass('mistake');
+    }
+    else {
+        isX = true;
+        $('#mistake').addClass('mistake');
+    }
+    return isX && isY && isR;
 }
 
-function validateY(yInputElement) {
+/*function validateY(yInputElement) {
     let y = parseFloat(yInputElement);
     return !(Number.isNaN(y) || y <= -3 || y >= 5);
 }
@@ -27,4 +37,28 @@ function validateY(yInputElement) {
 function validateR(rInputElement) {
     let r = parseFloat(rInputElement);
     return !(Number.isNaN(r) || r <= 2 || r >= 5);
+}
+
+function validateX(xInputElement) {
+    let x = parseInt(xInputElement);
+    return !(Number.isNaN(x));
+}*/
+
+function validateNumber(left, right, InputElement) {
+    if (typeof InputElement === 'string' || typeof InputElement === 'number') {
+        var number = parseFloat(InputElement.toString());
+        return !(isNaN(number) || number <= left || number >= right);
+    } else {
+        return false;
+    }
+}
+
+function validateX(left, right, xInputElement) {
+    if (typeof xInputElement === 'string' || typeof xInputElement === 'number') {
+        xInputElement = xInputElement.toString();
+        var x = parseInt(xInputElement);
+        return !(isNaN(x) || x < left || x > right);
+    } else {
+        return false;
+    }
 }

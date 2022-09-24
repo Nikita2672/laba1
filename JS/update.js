@@ -1,10 +1,10 @@
 function receiveSubmit() {
 
-    let x = FIELD_X.val();
-    let y = FIELD_Y.val();
-    let r = FIELD_R.val();
+    const x = $(FIELD_X).val();
+    const y = $(FIELD_Y).val();
+    const r = $(FIELD_R).val();
 
-    if (validateInputedValues(y, r)) {
+    if (validateInputedValues(x, y, r)) {
         sendRequest(x, y, r);
     }
 }
@@ -14,7 +14,7 @@ function sendRequest(x, y, r) {
         type: "GET",
         url: "index.php",
         async: false,
-        data: {"x": x.trim(), "y": y.trim(), "r": r.trim()},
+        data: {"x": x, "y": y, "r": r},
         success: function (data) {
             success(data);
         },
@@ -30,9 +30,8 @@ function success(data) {
 }
 
 function initTable(data) {
-    let mass = data.split("*");
+    var mass = data.split("*");
     dataset.push(mass);
-    console.log(dataset)
     table = TABLE.DataTable({
         data: dataset,
         columns: [

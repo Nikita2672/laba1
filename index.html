@@ -27,6 +27,10 @@
             border-width: 2px;
         }
 
+        .mistake {
+            color: #48466D;
+        }
+
         body {
             background-color: #00B8A9;
             display: flex;
@@ -125,7 +129,7 @@
                         4
                     </button>
                     <input type="hidden" name="x_coord" id="x_value">
-                    <label for="x_value" class="limitations">default 0</label>
+                    <label id="mistake" for="x_value" class="mistake">select</label>
                 </p>
                 <p class="values__y">
                     <label for="y_value">Y:</label><input id="y_value" type="text" class="input js-input js-input-Y"

@@ -1,12 +1,13 @@
 function processFieldSelection(field, value, fieldName) {
-    if (field.val() === value) {
-        field.val("");
+    if ($(field).val() === value) {
+        $(field).val("");
         $('#' + fieldName + value).removeClass('selected');
-    } else {
-        if (field.val() !== "") {
-            $('#' + fieldName + field.val()).removeClass('selected');
+    }
+    else {
+        if ($(field).val() !== "") {
+            $('#' + fieldName + $(field).val()).removeClass('selected');
         }
-        field.val(value);
+        $(field).val(value);
         $('#' + fieldName + value).addClass('selected');
     }
 }

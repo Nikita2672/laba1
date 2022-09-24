@@ -1,36 +1,20 @@
 <?php
-session_start();
-include 'validator.php';
+include 'Validator.php';
+include 'Checker.php';
+include 'DataManager.php';
 
-date_default_timezone_set('Europe/Moscow');
-
-function check_hit($x, $y, $r): bool
-{
-    $isHit = false;
-    if ($x >= 0 && $y >= 0) {
-        if ($y <= (-2 * $x + $r)) $isHit = true;
-    } else if ($x < 0 && $y > 0) {
-        if (!(($x * $x + $y * $y) > ($r * $r / 4))) $isHit = true;
-    } else if ($x < 0 && $y <= 0) {
-        if ($x > -$r && $y > -$r / 2) $isHit = true;
-    }
-    return $isHit;
-}
-
-if (isset($_GET['x']) && isset($_GET['y']) && isset($_GET['r'])) {
-    $startTime = new DateTimeImmutable();
-    $validator = new Validator;
-    if ($validator->validate($_GET['y'], $_GET['r'])) {
-        $x = intval($_GET['x']);
-        $y = floatval($_GET['y']);
-        $r = floatval($_GET['r']);
-        $checkedHit = check_hit($x, $y, $r) ? "True" : "False";
-        $currentTime = date('d.m.y H:i:s');
-        $finishTime = new DateTimeImmutable();
-        $interval = $startTime->diff($finishTime);
-        $processTime = $interval->format('%S.%F');
-        exit("$x*$y*$r*$currentTime*$processTime*$checkedHit");
+$startTime = new DateTimeImmutable();
+$answer = "";
+if (DataManager::checkIfDataSet()) {
+    $x = $_GET['x'];
+    $y = $_GET['y'];
+    $r = $_GET['r'];
+    if (DataManager::checkIfDataValid($x, $y, $r)) {
+        $answer = (DataManager::prepareValidAnswer($x, $y, $r, $startTime));
     } else {
-        exit("Data is incorrect\n");
+        $answer = (DataManager::prepareIncorrectDataAnswer($x, $y, $r, $startTime));
     }
+} else {
+    $answer = (DataManager::prepareEmptyDataAnswer($startTime));
 }
+DataManager::insertAnswer($answer);
