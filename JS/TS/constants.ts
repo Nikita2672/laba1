@@ -6,4 +6,5 @@ export class constants {
     static FIELD_R: object = $('#r_value');
     static TABLE: object = $('#table_id');
     static dataset: string[] = [];
+    static srt: string | number | string[] = $(constants.TABLE).val();
 }

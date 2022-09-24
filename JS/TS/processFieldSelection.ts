@@ -1,4 +1,4 @@
-function processFieldSelection(field: object, value: string, fieldName: string) {
+function processFieldSelection(field: object, value: string, fieldName: string): void {
     if ($(field).val() === value) {
         $(field).val("");
         $('#' + fieldName + value).removeClass('selected');
@@ -9,5 +9,4 @@ function processFieldSelection(field: object, value: string, fieldName: string) 
         $(field).val(value);
         $('#' + fieldName + value).addClass('selected');
     }
-
 }

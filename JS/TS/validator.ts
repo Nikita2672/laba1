@@ -1,36 +1,49 @@
 import {constants} from "./constants";
 
-function validateInputedValues(yVal: string | number | string[] | undefined, rVal: string | number | string[] | undefined)
+function validateInputedValues(yVal, xVal, rVal: string | number | string[] | undefined)
     : boolean {
     let isY: boolean;
     let isR: boolean;
+    let isX: boolean;
 
-    if (!validateNumber(yVal, -3, 5)) {
-        $(constants.FIELD_Y).addClass('error')
+    if (!validateNumber(-3, 5, yVal)) {
         isY = false;
+        $(constants.FIELD_Y).addClass('error');
     } else {
-        isY = true;
+        isY = true
         $(constants.FIELD_Y).removeClass('error');
     }
-    if (!validateNumber(rVal, 2, 5)) {
+    if (!validateNumber(2, 5, rVal)) {
         isR = false;
         $(constants.FIELD_R).addClass('error');
     } else {
         isR = true;
-        $(constants.FIELD_R).addClass('error');
+        $(constants.FIELD_R).removeClass('error');
     }
-    return isY && isR;
+    if (!validateX(-4, 4, xVal)) {
+        isX = false;
+        $('#mistake').removeClass('mistake');
+    } else {
+        isX = true;
+        $('#mistake').addClass('mistake');
+    }
+    return isX && isY && isR;
 }
 
-function validateNumber(yVal: string | number | string[] | undefined, leftInterval: number, rightInterval: number): boolean {
-    if (typeof (yVal) === "string" || typeof (yVal) === "number") {
-        if (typeof (yVal) === "string") {
-            let y: number = parseFloat(yVal);
-            return !(y <= leftInterval || y >= rightInterval)
-        } else {
-            let y: number = yVal;
-            return !(y <= leftInterval || y >= rightInterval)
-        }
+function validateNumber(left: number, right: number, InputElement: string | number | string[] | undefined): boolean {
+    if (typeof InputElement === 'string' || typeof InputElement === 'number') {
+        let number: number = parseFloat(InputElement.toString())
+        return !(isNaN(number) || number <= left || number >= right);
+    } else {
+        return false;
+    }
+}
+
+function validateX(left: number, right: number, xInputElement: string | number | string[] | undefined): boolean {
+    if (typeof xInputElement === 'string' || typeof xInputElement === 'number') {
+        xInputElement = xInputElement.toString();
+        let x: number = parseInt(xInputElement);
+        return !(isNaN(x) || x < left || x > right);
     } else {
         return false;
     }
