@@ -1,0 +1,9 @@
+import "Jquery";
+import {constants} from "./Constants";
+
+function cleanInput(): void {
+    $("#x" + $(constants.FIELD_X).val()).removeClass('selected');
+    $(constants.FIELD_X).val("");
+    $(constants.FIELD_Y).removeClass('error');
+    $(constants.FIELD_R).removeClass('error');
+}

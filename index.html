@@ -6,25 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=700px">
     <title>Web 1-st laba</title>
-    <link rel="stylesheet" type="text/css" href="CSS/header.css">
-    <link rel="stylesheet" type="text/css" href="CSS/form.css">
-    <link rel="stylesheet" type="text/css" href="CSS/graph.css">
-    <link rel="stylesheet" type="text/css" href="CSS/table.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <link rel="stylesheet" type="text/css" href="css/graph.css">
+    <link rel="stylesheet" type="text/css" href="css/table.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8"
             src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
-    <script src="JS/table.js"></script>
-    <script src="JS/processFieldSelection.js"></script>
-    <script src="JS/cleaner.js"></script>
-    <script src="JS/data.js"></script>
+    <script src="scripts/table.js"></script>
+    <script src="scripts/processFieldSelection.js"></script>
+    <script src="scripts/cleaner.js"></script>
+    <script src="scripts/data.js"></script>
 
     <style>
         .input.error {
             border-color: red;
             border-width: 2px;
+        }
+
+        .mistake {
+            color: #48466D;
         }
 
         body {
@@ -125,7 +129,7 @@
                         4
                     </button>
                     <input type="hidden" name="x_coord" id="x_value">
-                    <label for="x_value" class="limitations">default 0</label>
+                    <label id="mistake" for="x_value" class="mistake">select</label>
                 </p>
                 <p class="values__y">
                     <label for="y_value">Y:</label><input id="y_value" type="text" class="input js-input js-input-Y"
@@ -153,9 +157,9 @@
         </table>
     </div>
 
-    <script src="JS/constants.js"></script>
-    <script src="JS/validator.js"></script>
-    <script src="JS/update.js"></script>
+    <script src="scripts/constants.js"></script>
+    <script src="scripts/validator.js"></script>
+    <script src="scripts/update.js"></script>
     </body>
 </div>
 </html>

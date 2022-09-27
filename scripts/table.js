@@ -1,4 +1,4 @@
-let table;
+var table;
 $(document).ready(function () {
     table = TABLE.DataTable({
         data: dataset,
@@ -12,5 +12,3 @@ $(document).ready(function () {
         ]
     });
 });
-
-
