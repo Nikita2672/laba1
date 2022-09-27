@@ -1,4 +1,4 @@
-import {constants} from "./constants";
+import {constants} from "./Constants";
 
 function validateInputedValues(yVal, xVal, rVal: string | number | string[] | undefined)
     : boolean {
